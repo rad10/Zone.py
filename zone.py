@@ -75,7 +75,7 @@ if(url == ""):
 #[/Config]#
 #[Import JSON info from site]#
 try:
-    sock = urllib.urlopen("http://api.zone.vision/"+url)
+    sock = urllib.urlopen("http://api.zone.vision/" + url)
     jsonSite = sock.read()
     sock.close()
     #[/Import JSON from site]#
@@ -85,9 +85,9 @@ except:
     exit()
 #[Generator]#
 if errors:
-    print("Errors: "+str(jsonData["errors"]))
+    print("Errors: " + str(jsonData["errors"]))
 if name:
-    print("url: "+str(jsonData["name"]))
+    print("url: " + str(jsonData["name"]))
 #[Naming Servers]#
 if dns:
     print("Naming Servers:")
@@ -96,15 +96,15 @@ if dns:
         print("+None")  # if theres no record, itll display it as no record
     else:
         for i in jsonData["parent"]["glue"]["v4"]:  # lists every server that uses ipv6
-            print("+Name: "+i["name"])  # lists the name
-            print("+Address: "+i["address"])  # lists the address
+            print("+Name: " + i["name"])  # lists the name
+            print("+Address: " + i["address"])  # lists the address
     print("IPv6:")
     if (str(jsonData["parent"]["glue"]["v6"]) == "None"):
         print("+None\n")  # if theres no record, itll display it as no record
     else:
         for i in jsonData["parent"]["glue"]["v6"]:  # lists every server that uses ipv6
-            print("+name: "+i["name"])  # lists the name
-            print("+Address: "+i["address"])  # lists the address
+            print("+name: " + i["name"])  # lists the name
+            print("+Address: " + i["address"])  # lists the address
         print("")
 #[/Naming Servers]#
 #[SOA]#
@@ -113,8 +113,8 @@ if soa:
     size = 0  # tallys all servers, true or not
     for i in jsonData["diagnostics"]["results"][6]["sources"]:
         if jsonData["diagnostics"]["results"][6]["sources"][i]:
-            total = total+1
-        size = size+1
+            total = total + 1
+        size = size + 1
     if b:  # Only enacts if the program requests a boolean with -b
         if detail:  # This setting allows to get details on subject
             if (total == size):
@@ -123,7 +123,7 @@ if soa:
                 print("Not all SOA Records are present")
             for i in jsonData["diagnostics"]["results"][6]["sources"]:
                 # goes through all servers and sends the name and the info bound to the server name
-                print(i+": "+str(jsonData["diagnostics"]
+                print(i + ": " + str(jsonData["diagnostics"]
                                  ["results"][6]["sources"][i]))
         else:
             if (total == size):
@@ -140,7 +140,7 @@ if soa:
                       ["source"])  # Prints the server name
                 # Prints the websites name
                 print(
-                    "+Name: "+str(jsonData["authoritative"]["soa"][i]["records"][0]["name"]))
+                    "+Name: " + str(jsonData["authoritative"]["soa"][i]["records"][0]["name"]))
                 print("+Primary Server: " +
                       str(jsonData["authoritative"]["soa"][i]["records"][0]["mname"]))
                 print("+Responsible Party: " +
@@ -158,8 +158,8 @@ if a:
     size = 0  # tallys all servers, true or not
     for i in jsonData["diagnostics"]["results"][7]["sources"]:
         if jsonData["diagnostics"]["results"][7]["sources"][i]:
-            total = total+1
-        size = size+1
+            total = total + 1
+        size = size + 1
     if b:  # Only enacts if the program requests a boolean with -b
         if detail:  # This setting allows to get details on subject
             if (total == size):
@@ -168,7 +168,7 @@ if a:
                 print("Not all A Records are present")
             for i in jsonData["diagnostics"]["results"][7]["sources"]:
                 # goes through all servers and sends the name and the info bound to the server name
-                print(i+": "+str(jsonData["diagnostics"]
+                print(i + ": " + str(jsonData["diagnostics"]
                                  ["results"][7]["sources"][i]))
         else:
             if (total == size):
@@ -185,10 +185,10 @@ if a:
                       ["source"])  # Prints the server name
                 # Prints the websites name
                 print(
-                    "+Name: "+str(jsonData["authoritative"]["a"][i]["records"][0]["name"]))
+                    "+Name: " + str(jsonData["authoritative"]["a"][i]["records"][0]["name"]))
                 # Prints the info given
                 print(
-                    "+Address: "+str(jsonData["authoritative"]["a"][i]["records"][0]["address"]))
+                    "+Address: " + str(jsonData["authoritative"]["a"][i]["records"][0]["address"]))
             print("")
         else:
             # Will only print this is there no record info to be found
@@ -200,8 +200,8 @@ if aaaa:
     size = 0  # tallys all servers, true or not
     for i in jsonData["diagnostics"]["results"][8]["sources"]:
         if jsonData["diagnostics"]["results"][8]["sources"][i]:
-            total = total+1
-        size = size+1
+            total = total + 1
+        size = size + 1
     if b:  # Only enacts if the program requests a boolean with -b
         if detail:  # This setting allows to get details on subject
             if (total == size):
@@ -210,7 +210,7 @@ if aaaa:
                 print("Not all AAAA Records are present")
             for i in jsonData["diagnostics"]["results"][8]["sources"]:
                 # goes through all servers and sends the name and the info bound to the server name
-                print(i+": "+str(jsonData["diagnostics"]
+                print(i + ": " + str(jsonData["diagnostics"]
                                  ["results"][8]["sources"][i]))
         else:
             if (total == size):
@@ -227,10 +227,10 @@ if aaaa:
                       ["source"])  # Prints the server name
                 # Prints the websites name
                 print(
-                    "+Name: "+str(jsonData["authoritative"]["aaaa"][i]["records"][0]["name"]))
+                    "+Name: " + str(jsonData["authoritative"]["aaaa"][i]["records"][0]["name"]))
                 # Prints the info given
                 print(
-                    "+Address: "+str(jsonData["authoritative"]["aaaa"][i]["records"][0]["address"]))
+                    "+Address: " + str(jsonData["authoritative"]["aaaa"][i]["records"][0]["address"]))
             print("")
         else:
             # Will only print this is there no record info to be found
@@ -242,8 +242,8 @@ if mx:
     size = 0  # tallys all servers, true or not
     for i in jsonData["diagnostics"]["results"][9]["sources"]:
         if jsonData["diagnostics"]["results"][9]["sources"][i]:
-            total = total+1
-        size = size+1
+            total = total + 1
+        size = size + 1
     if b:  # Only enacts if the program requests a boolean with -b
         if detail:  # This setting allows to get details on subject
             if (total == size):
@@ -252,7 +252,7 @@ if mx:
                 print("Not all MX Records are present")
             for i in jsonData["diagnostics"]["results"][9]["sources"]:
                 # goes through all servers and sends the name and the info bound to the server name
-                print(i+": "+str(jsonData["diagnostics"]
+                print(i + ": " + str(jsonData["diagnostics"]
                                  ["results"][9]["sources"][i]))
         else:
             if (total == size):
@@ -269,10 +269,10 @@ if mx:
                       ["source"])  # Prints the server name
                 # Prints the websites name
                 print(
-                    "+Name: "+str(jsonData["authoritative"]["mx"][i]["records"][0]["name"]))
+                    "+Name: " + str(jsonData["authoritative"]["mx"][i]["records"][0]["name"]))
                 # Prints the info given
                 print(
-                    "+Address: "+str(jsonData["authoritative"]["mx"][i]["records"][0]["exchange"]))
+                    "+Address: " + str(jsonData["authoritative"]["mx"][i]["records"][0]["exchange"]))
             print("")
         else:
             # Will only print this is there no record info to be found
@@ -284,8 +284,8 @@ if cname:
     size = 0  # tallys all servers, true or not
     for i in jsonData["diagnostics"]["results"][10]["sources"]:
         if jsonData["diagnostics"]["results"][10]["sources"][i]:
-            total = total+1
-        size = size+1
+            total = total + 1
+        size = size + 1
     if b:  # Only enacts if the program requests a boolean with -b
         if detail:  # This setting allows to get details on subject
             if (total == size):
@@ -294,7 +294,7 @@ if cname:
                 print("Not all CNAME Records are present")
             for i in jsonData["diagnostics"]["results"][10]["sources"]:
                 # goes through all servers and sends the name and the info bound to the server name
-                print(i+": "+str(jsonData["diagnostics"]
+                print(i + ": " + str(jsonData["diagnostics"]
                                  ["results"][10]["sources"][i]))
         else:
             if (total == size):
@@ -311,7 +311,7 @@ if cname:
                       ["source"])  # Prints the server name
                 # Prints the websites name
                 print(
-                    "+Name: "+str(jsonData["authoritative"]["cname"][i]["records"][0]["name"]))
+                    "+Name: " + str(jsonData["authoritative"]["cname"][i]["records"][0]["name"]))
                 # print("+Address: "+str(jsonData["authoritative"]["cname"][i]["records"][0]["address"])) #Prints the info given
             print("")
         else:
