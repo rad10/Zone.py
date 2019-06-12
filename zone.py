@@ -55,7 +55,7 @@ for i in argv[1:]:  # grabs all args - zone.py
         b = True
     elif (i == "-txt"):
         txt = True
-    elif (i == "-h" | i == "-help" | i == "--help"):
+    elif (i == "-h" or i == "-help" or i == "--help"):
         help()
     elif (i[0] == "-"):
         print("Incorrect Command\n")
@@ -124,7 +124,7 @@ if soa:
             for i in jsonData["diagnostics"]["results"][6]["sources"]:
                 # goes through all servers and sends the name and the info bound to the server name
                 print(i + ": " + str(jsonData["diagnostics"]
-                                 ["results"][6]["sources"][i]))
+                                     ["results"][6]["sources"][i]))
         else:
             if (total == size):
                 # this side of script just gives true or false for automation
@@ -169,7 +169,7 @@ if a:
             for i in jsonData["diagnostics"]["results"][7]["sources"]:
                 # goes through all servers and sends the name and the info bound to the server name
                 print(i + ": " + str(jsonData["diagnostics"]
-                                 ["results"][7]["sources"][i]))
+                                     ["results"][7]["sources"][i]))
         else:
             if (total == size):
                 # this side of script just gives true or false for automation
@@ -211,7 +211,7 @@ if aaaa:
             for i in jsonData["diagnostics"]["results"][8]["sources"]:
                 # goes through all servers and sends the name and the info bound to the server name
                 print(i + ": " + str(jsonData["diagnostics"]
-                                 ["results"][8]["sources"][i]))
+                                     ["results"][8]["sources"][i]))
         else:
             if (total == size):
                 # this side of script just gives true or false for automation
@@ -253,7 +253,7 @@ if mx:
             for i in jsonData["diagnostics"]["results"][9]["sources"]:
                 # goes through all servers and sends the name and the info bound to the server name
                 print(i + ": " + str(jsonData["diagnostics"]
-                                 ["results"][9]["sources"][i]))
+                                     ["results"][9]["sources"][i]))
         else:
             if (total == size):
                 # this side of script just gives true or false for automation
@@ -295,7 +295,7 @@ if cname:
             for i in jsonData["diagnostics"]["results"][10]["sources"]:
                 # goes through all servers and sends the name and the info bound to the server name
                 print(i + ": " + str(jsonData["diagnostics"]
-                                 ["results"][10]["sources"][i]))
+                                     ["results"][10]["sources"][i]))
         else:
             if (total == size):
                 # this side of script just gives true or false for automation
